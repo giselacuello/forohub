@@ -4,6 +4,7 @@ import com.aluracursos.forohub.API.domain.curso.Curso;
 import com.aluracursos.forohub.API.domain.respuesta.Respuesta;
 import com.aluracursos.forohub.API.domain.usuario.Usuario;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -28,7 +29,7 @@ public class Topico {
     private LocalDateTime fechaCreacion = LocalDateTime.now();
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.NO_RESPONDIDO;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario autor;
@@ -38,4 +39,13 @@ public class Topico {
 
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
     private List<Respuesta> respuestas = new ArrayList<>();
+
+    public Topico(@NotBlank String titulo, @NotBlank String mensaje, Usuario autor, Curso curso) {
+        this.titulo = titulo;
+        this.mensaje = mensaje;
+        this.autor = autor;
+        this.curso = curso;
+        this.fechaCreacion = LocalDateTime.now();
+        this.status = Status.NO_RESPONDIDO;
+    }
 }
