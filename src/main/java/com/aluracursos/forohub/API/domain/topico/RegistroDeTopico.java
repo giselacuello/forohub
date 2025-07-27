@@ -30,7 +30,7 @@ public class RegistroDeTopico {
 //        this.repository = repository;
 //    }
 
-    @Transactional
+    //@Transactional lo dejé en el controller como en el curso
     public DatosDetalleTopico registrar(@Valid DatosRegistroTopico datos) {
         //verificar duplicados
         boolean existe = topicoRepository.existsByTituloAndMensaje(datos.titulo(), datos.mensaje());
