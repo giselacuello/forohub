@@ -1,9 +1,6 @@
 package com.aluracursos.forohub.API.controller;
 
-import com.aluracursos.forohub.API.domain.topico.DatosListaTopico;
-import com.aluracursos.forohub.API.domain.topico.DatosRegistroTopico;
-import com.aluracursos.forohub.API.domain.topico.RegistroDeTopico;
-import com.aluracursos.forohub.API.domain.topico.TopicoRepository;
+import com.aluracursos.forohub.API.domain.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -13,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -23,7 +18,7 @@ import java.util.List;
 public class TopicoController {
 
     @Autowired
-    private RegistroDeTopico registroTopico;
+    private TopicoService registroTopico;
 
     @Autowired
     private TopicoRepository topicoRepository;
@@ -67,5 +62,32 @@ public class TopicoController {
 
         return ResponseEntity.ok(lista);
     }
+
+    //detalle de topico por id
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosDetalleTopico> obtenerPorId(@PathVariable Long id) {
+        var topico = topicoRepository.findById(id);
+
+        if(topico.isPresent()) {
+            return ResponseEntity.ok(new DatosDetalleTopico(topico.get()));
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<DatosDetalleTopico> actualizar(@PathVariable Long id, @RequestBody @Valid DatosActualizarTopico datos) {
+
+        var topicoActualizado = registroTopico.actualizar(id, datos);
+        return ResponseEntity.ok(topicoActualizado);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+        registroTopico.eliminar(id);
+        return ResponseEntity.noContent().build(); //HTTP204
+    }
+
+
 
 }

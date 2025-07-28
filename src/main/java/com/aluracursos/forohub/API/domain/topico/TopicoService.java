@@ -7,14 +7,12 @@ import com.aluracursos.forohub.API.domain.usuario.Usuario;
 import com.aluracursos.forohub.API.domain.usuario.UsuarioRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
-public class RegistroDeTopico {
+public class TopicoService {
 
     @Autowired
     private TopicoRepository topicoRepository;
@@ -46,5 +44,33 @@ public class RegistroDeTopico {
         topicoRepository.save(topico);
 
         return new DatosDetalleTopico(topico);
+    }
+
+    public DatosDetalleTopico actualizar(Long id, DatosActualizarTopico datos) {
+        Optional<Topico> optionalTopico = topicoRepository.findById(id);
+
+        //if (optionalTopico.isPresent()) {
+        //        Topico topico = optionalTopico.get();
+        //        topico.setTitulo(datos.titulo());
+        //        topico.setMensaje(datos.mensaje());
+        //        return new DatosDetalleTopico(topico);
+
+        if(optionalTopico.isPresent()) {
+            Topico topico = optionalTopico.get();
+            topico.actualizarTopico(datos);
+            return new DatosDetalleTopico(topico);
+        } else {
+            throw new ValidationException("Tópico no encontrado");
+        }
+    }
+
+    public void eliminar(Long id) {
+        Optional<Topico> optionalTopico = topicoRepository.findById(id);
+
+        if (optionalTopico.isPresent()) {
+            topicoRepository.delete(optionalTopico.get());
+        } else {
+            throw new ValidationException("Topico no encontrado");
+        }
     }
 }

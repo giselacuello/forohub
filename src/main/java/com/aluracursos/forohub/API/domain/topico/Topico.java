@@ -48,4 +48,13 @@ public class Topico {
         this.fechaCreacion = LocalDateTime.now();
         this.status = Status.NO_RESPONDIDO;
     }
+
+    public void actualizarTopico(DatosActualizarTopico datos) {
+        if(datos.titulo() != null) {
+            this.titulo = datos.titulo();
+        }
+        if (datos.mensaje() != null) {
+            this.mensaje = datos.mensaje();
+        }
+    }
 }
