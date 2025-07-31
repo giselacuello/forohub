@@ -1,0 +1,258 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_ee10122cdfa245b1a3ae784481b95381
+  created: 1753584179966
+  modified: 1753584179966
+  description: ""
+collection:
+  - name: topicos
+    meta:
+      id: fld_98018c6066bf46d4b4e70f61891336a4
+      created: 1753927574767
+      modified: 1753927574767
+      sortKey: -1753927574767
+      description: ""
+    children:
+      - url: http://localhost:8080/topicos
+        name: Registrar Topico
+        meta:
+          id: req_f9d7cdf3ae7b4061a32cfa950a649389
+          created: 1753584180117
+          modified: 1753927608809
+          isPrivate: false
+          description: ""
+          sortKey: -1753927581065
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "123 probando con token",
+              "mensaje": "para eliminar",
+              "idAutor": 1,
+              "idCurso": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmb3JvaHViIiwic3ViIjoiZ2lzZWxhQGV4YW1wbGUuY29tIiwiZXhwIjoxNzUzODQ3NzQwfQ.0Echzjw8uJsd9nLDgMGUyc7KTgmh6ZAB2iPCpLL9mGU
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/topicos
+        name: Mostrar todos los topicos
+        meta:
+          id: req_fdbd175f080341b4b568f4af775d8337
+          created: 1753587012390
+          modified: 1753927601124
+          isPrivate: false
+          description: ""
+          sortKey: -1753927580965
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmb3JvaHViIiwic3ViIjoiZ2lzZWxhQGV4YW1wbGUuY29tIiwiZXhwIjoxNzUzOTMzOTkzfQ.fR_1ZKj8h5wZDKmRd5gfJiL5rxs5VfgWRkGa5H913AE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/topicos/1
+        name: Mostrar topico por id
+        meta:
+          id: req_2124679a4433441c85a8f67fe76a47a6
+          created: 1753654141944
+          modified: 1753927591499
+          isPrivate: false
+          description: ""
+          sortKey: -1753927580865
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmb3JvaHViIiwic3ViIjoiZ2lzZWxhQGV4YW1wbGUuY29tIiwiZXhwIjoxNzUzODQ3NzQwfQ.0Echzjw8uJsd9nLDgMGUyc7KTgmh6ZAB2iPCpLL9mGU
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/topicos/1
+        name: Actualizar topico
+        meta:
+          id: req_c9709f9df4c34fd3a590865635c9689b
+          created: 1753657454177
+          modified: 1753927584523
+          isPrivate: false
+          description: ""
+          sortKey: -1753927580765
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Título actualizado con token",
+              "mensaje": "Nuevo mensaje para el tópico"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+            id: pair_8e555aaebf344d63acbadd44e06b99cb
+          - id: pair_6080396a4dae41de8f52fc0ac318141a
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+            type: text
+            multiline: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmb3JvaHViIiwic3ViIjoiZ2lzZWxhQGV4YW1wbGUuY29tIiwiZXhwIjoxNzUzODQ3NzQwfQ.0Echzjw8uJsd9nLDgMGUyc7KTgmh6ZAB2iPCpLL9mGU
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/topicos/2
+        name: Eliminar topico
+        meta:
+          id: req_7303a440fcb54369ae159b4eed06d536
+          created: 1753660138321
+          modified: 1753927580702
+          isPrivate: false
+          description: ""
+          sortKey: -1753927580665
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmb3JvaHViIiwic3ViIjoiZ2lzZWxhQGV4YW1wbGUuY29tIiwiZXhwIjoxNzUzODQ3NzQwfQ.0Echzjw8uJsd9nLDgMGUyc7KTgmh6ZAB2iPCpLL9mGU
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: usuarios
+    meta:
+      id: fld_5241393428584f739e1c9f7e420ccd76
+      created: 1753927620940
+      modified: 1753927620940
+      sortKey: -1753927620940
+      description: ""
+    children:
+      - url: http://localhost:8080/usuarios
+        name: Registrar usuario
+        meta:
+          id: req_8c64195c25a7468e8b1dd746771f2e11
+          created: 1753927627187
+          modified: 1753928115600
+          isPrivate: false
+          description: ""
+          sortKey: -1753927627187
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nombre": "pepa",
+              "email": "pepita@example.com",
+              "contrasena": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: none
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - url: http://localhost:8080/login
+    name: Login
+    meta:
+      id: req_01f34555502d425c90ccef35b5b21e83
+      created: 1753840281889
+      modified: 1753926793120
+      isPrivate: false
+      description: ""
+      sortKey: -1753840281889
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "email": "gisela@example.com",
+          "contrasena": "1234"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.3.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_ef55e3460670ae04768ce86abc6142771d8fafd6
+    created: 1753584180010
+    modified: 1753584369780
+  cookies:
+    - key: JSESSIONID
+      value: 7ACE11712B43C2CB82D683C0998ABA69
+      domain: localhost
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-07-27T02:46:09.780Z
+      lastAccessed: 2025-07-27T02:46:09.780Z
+      id: 3772e1a9-4005-4d98-b139-7302b1955ae6
+environments:
+  name: Base Environment
+  meta:
+    id: env_ef55e3460670ae04768ce86abc6142771d8fafd6
+    created: 1753584179995
+    modified: 1753584179995
+    isPrivate: false
